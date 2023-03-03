@@ -1,1 +1,5 @@
-# mysql-backup_script
+This is a bash script for performing daily MySQL backups. The script starts by checking the disk usage, and if it's above 70%, the script exits and does not run.
+
+Next, the script removes the backup from the previous day, then sets the log file names and clears them. The script then sets date variables, defines the backup directory, and checks if it exists.
+
+The script then deletes backups that are older than one week, creates directories for the current backup, and runs mysqldump on each database, saving the output to individual .sql files. Finally, the script creates a daily backup archive, writes a report file listing the size and filenames of each database backup, writes a detailed report file listing the size and filenames of each .sql file, and deletes the temporary directory used for the backup.
